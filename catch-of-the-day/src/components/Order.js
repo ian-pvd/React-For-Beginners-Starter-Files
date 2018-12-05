@@ -29,6 +29,12 @@ class Order extends Component {
         lbs
         {fish.name}
         {formatPrice(count * fish.price)}
+        <button
+          type="submit"
+          onClick={() => this.props.removeFromOrder(key)}
+        >
+          &times;
+        </button>
       </li>
     );
   };
