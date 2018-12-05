@@ -3,8 +3,8 @@
  */
 
 import React, { Component } from 'react';
-import { formatPrice } from '../helpers';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { formatPrice } from '../helpers';
 
 class Order extends Component {
   renderOrder = (key) => {
