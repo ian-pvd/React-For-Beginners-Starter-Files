@@ -39,14 +39,20 @@ class App extends Component {
     base.removeBinding(this.ref);
   }
 
+  loadSampleFishes = () => {
+    this.setState({ fishes: sampleFishes });
+  }
+
   addFish = (fish) => {
     const fishes = { ...this.state.fishes };
     fishes[`fish${Date.now()}`] = fish;
     this.setState({ fishes });
   }
 
-  loadSampleFishes = () => {
-    this.setState({ fishes: sampleFishes });
+  updateFish = (key, updatedFish) => {
+    const fishes = { ...this.state.fishes };
+    fishes[key] = updatedFish;
+    this.setState({ fishes });
   }
 
   addToOrder = (key) => {
@@ -72,7 +78,12 @@ class App extends Component {
           </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order} />
-        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} />
+        <Inventory
+          addFish={this.addFish}
+          updateFish={this.updateFish}
+          loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
+        />
       </div>
     );
   }
